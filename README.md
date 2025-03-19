@@ -203,7 +203,7 @@ printf("Simulating Playfair Cipher\n");
 strcpy(key, "Monopoly");
 printf("Key text: %s\n", key);
 // Plaintext to be encrypted
-strcpy(str, "SANJAY ASHWIN");
+strcpy(str, "DHARANISH");
 printf("Plain text: %s\n", str);
 // Encrypt using Playfair Cipher
 encryptByPlayfairCipher(str, key);
@@ -216,7 +216,8 @@ return 0;
 ```
 
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/d471c22c-55d1-4299-a8a9-705f30f70213)
+![Screenshot 2025-03-19 123727](https://github.com/user-attachments/assets/96abf4bf-dc49-462a-9d6c-123a05d2400f)
+
 
 
 ## RESULT:
