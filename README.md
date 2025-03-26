@@ -90,8 +90,9 @@ printf("\n"); // New line after output
 }
 ```
 ## OUTPUT:
+![Screenshot 2025-03-26 084933](https://github.com/user-attachments/assets/d522fbb6-2570-489d-b93e-79d554157303)
 
-![image](https://github.com/user-attachments/assets/1d95cb8c-6ab8-476c-859f-8cf95cda97f4)
+
 
 ## RESULT:
 The program is executed successfully
