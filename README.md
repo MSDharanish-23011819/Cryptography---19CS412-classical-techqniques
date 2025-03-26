@@ -25,7 +25,6 @@ The cipher can, be adapted to an alphabet with any number of letters. All arithm
 
 
 ## PROGRAM:
-PROGRAM:
 ```
 #include <stdio.h>
 #include <string.h>
@@ -76,7 +75,7 @@ int main() {
     char temp[4];
     int n;
 
-    strcpy(msg, "sanjayashwin");
+    strcpy(msg, "dharanish");
     printf("Simulation of Hill Cipher\n");
     printf("Input message : %s\n", msg);
 
@@ -115,8 +114,9 @@ int main() {
 ```
 
 ## OUTPUT:
+![Screenshot 2025-03-26 084113](https://github.com/user-attachments/assets/fbfe7777-0720-4eab-a15f-f08f7040b5c7)
 
-![image](https://github.com/user-attachments/assets/a6a8cdd8-ab44-412a-9bbe-da9d862e3045)
+
 
 ## RESULT:
 The program is executed successfully
