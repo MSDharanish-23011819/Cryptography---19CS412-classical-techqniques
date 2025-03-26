@@ -1,15 +1,17 @@
-# Vigenere Cipher
-Vigenere Cipher using with different key values
+# Cryptography---19CS412-classical-techqniques
+# Caeser Cipher
+Caeser Cipher using with different key values
 
 # AIM:
 
-To develop a simple C program to implement Vigenere Cipher.
+To encrypt and decrypt the given message by using Ceaser Cipher encryption algorithm.
+
 
 ## DESIGN STEPS:
 
 ### Step 1:
 
-Design of Vigenere Cipher algorithnm 
+Design of Caeser Cipher algorithnm 
 
 ### Step 2:
 
@@ -17,82 +19,69 @@ Implementation using C or pyhton code
 
 ### Step 3:
 
-Testing algorithm with different key values. 
-ALGORITHM DESCRIPTION:
-The Vigenere cipher is a method of encrypting alphabetic text by using a series of different Caesar ciphers based on the letters of a keyword. It is a simple form of polyalphabetic substitution.To encrypt, a table of alphabets can be used, termed a Vigenere square, or Vigenere table. It consists of the alphabet written out 26 times in different rows, each alphabet shifted cyclically to the left compared to the previous alphabet, corresponding to the 26 possible Caesar ciphers. At different points in the encryption process, the cipher uses a different alphabet from one of the rows used. The alphabet at each point depends on a repeating keyword.
-
+1.	In Ceaser Cipher each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet.
+2.	For example, with a left shift of 3, D would be replaced by A, E would become B, and so on.
+3.	The encryption can also be represented using modular arithmetic by first transforming the letters into numbers, according to the   
+    scheme, A = 0, B = 1, Z = 25.
+4.	Encryption of a letter x by a shift n can be described mathematically as,
+                       En(x) = (x + n) mod26
+5.	Decryption is performed similarly,
+                       Dn (x)=(x - n) mod26
 
 
 ## PROGRAM:
 PROGRAM:
-```
+CaearCipher.
+
 #include <stdio.h>
-#include <ctype.h>
 #include <string.h>
-#include <stdlib.h>
-void encipher();
-void decipher();
+#include <ctype.h>
 int main() {
-int choice;
-while (1) {
-printf("\n1. Encrypt Text");
-printf("\t2. Decrypt Text");
-printf("\t3. Exit");
-printf("\n\nEnter Your Choice: ");
-scanf("%d", &choice);
-if (choice == 3)
-return 0; // Proper exit from main()
-else if (choice == 1)
-encipher();
-else if (choice == 2)
-decipher();
-else
-printf("Please Enter a Valid Option.\n");
+char plain[100], cipher[100];
+int key, i, length;
+printf("Enter the plain text: ");
+scanf("%s", plain);
+printf("Enter the key value: ");
+scanf("%d", &key);
+printf("\nPLAIN TEXT: %s", plain);
+printf("\nENCRYPTED TEXT: ");
+length = strlen(plain);
+for (i = 0; i < length; i++) {
+cipher[i] = plain[i] + key;
+// Handling uppercase letters
+if (isupper(plain[i]) && cipher[i] > 'Z') {
+cipher[i] = cipher[i] - 26;
 }
+// Handling lowercase letters
+if (islower(plain[i]) && cipher[i] > 'z') {
+cipher[i] = cipher[i] - 26;
 }
-void encipher() {
-unsigned int i, j;
-char input[50], key[10];
-printf("\n\nEnter Plain Text: ");
-scanf("%s", input);
-printf("\nEnter Key Value: ");
-scanf("%s", key);
-printf("\nResultant Cipher Text: ");
-for (i = 0, j = 0; i < strlen(input); i++, j++) {
-if (j >= strlen(key)) {
-j = 0; // Reset key index if it exceeds the key length
+printf("%c", cipher[i]);
 }
-printf("%c", 65 + (((toupper(input[i]) - 65) + (toupper(key[j]) - 65)) % 26));
-// Encryption formula
+cipher[length] = '\0'; // Null-terminate the cipher text string
+printf("\nDECRYPTED TEXT: ");
+for (i = 0; i < length; i++) {
+plain[i] = cipher[i] - key;
+// Handling uppercase letters
+if (isupper(cipher[i]) && plain[i] < 'A') {
+plain[i] = plain[i] + 26;
 }
-printf("\n"); // New line after output
+// Handling lowercase letters
+if (islower(cipher[i]) && plain[i] < 'a') {
+plain[i] = plain[i] + 26;
 }
-void decipher() {
-unsigned int i, j;
-char input[50], key[10];
-int value;
-printf("\n\nEnter Cipher Text: ");
-scanf("%s", input);
-printf("\nEnter the Key Value: ");
-scanf("%s", key);
-printf("\nDecrypted Plain Text: ");
-for (i = 0, j = 0; i < strlen(input); i++, j++) {
-if (j >= strlen(key)) {
-j = 0; // Reset key index if it exceeds the key length
-}// Decryption formula
-value = (toupper(input[i]) - 65) - (toupper(key[j]) - 65);
-if (value < 0) {
-value += 26; // Correct the negative wrap-around in alphabet
+printf("%c", plain[i]);
 }
-printf("%c", 65 + (value % 26));
+plain[length] = '\0'; // Null-terminate the plain text string
+return 0;
 }
-printf("\n"); // New line after output
-}
-```
+
+
 ## OUTPUT:
-![Screenshot 2025-03-26 084933](https://github.com/user-attachments/assets/d522fbb6-2570-489d-b93e-79d554157303)
+OUTPUT:
+Simulating Caesar Cipher
 
 
-
-## RESULT:
-The program is executed successfully
+![image](https://github.com/user-attachments/assets/60e1d92f-7012-433a-9dc7-e763e1a98fdd)
+## Result:
+The program executed successfully.
